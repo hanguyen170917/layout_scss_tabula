@@ -1,0 +1,542 @@
+// HEADER
+header {
+  .mainHeader {
+    @include displayContent(center, unset);
+    padding: 0 30px;
+
+    .logo {
+      width: 10%;
+      z-index: 1;
+
+      img {
+        width: 65%;
+      }
+    }
+
+    .nav {
+      width: 65%;
+      z-index: 1;
+
+      ul {
+        width: 100%;
+        list-style: none;
+        padding: 0 40px;
+        margin: 0;
+        @include displayContent(unset, right);
+
+        a {
+          color: $color-1;
+          font: {
+            size: $fs-1;
+            weight: $fw-1;
+          }
+          transition: all 0.3s;
+          padding: 0 25px;
+
+          &:hover {
+            @include hover-a($color-2);
+          }
+        }
+
+        .active {
+          position: relative;
+          @include displayContent(unset, center);
+
+          &::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: $color-2;
+            border-radius: $bd-r-1;
+            @include positionContent(46px, unset, unset, unset);
+          }
+        }
+      }
+    }
+
+    .contact {
+      width: 25%;
+      @include displayContent(center, unset);
+      z-index: 2;
+
+      .btnContact {
+        width: 60%;
+        height: 45px;
+        background-color: $bg-1;
+        border-radius: $bd-r-1;
+        cursor: pointer;
+        @include displayContent(center, center);
+        transition: all 0.5s;
+        font-size: $fs-1;
+        @include hover-a($color-3);
+        position: relative;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: $color-3;
+          border-radius: $bd-r-1;
+          box-shadow: $bs-4;
+          transition: all 0.5s ease;
+          transform-origin: center;
+          transform: scale(0);
+          position: absolute;
+        }
+        &:hover::after {
+          transform: scale(1);
+        }
+
+        &:hover i {
+          color: $color-2;
+          z-index: 99;
+        }
+
+        &:hover span {
+          color: $color-2;
+          z-index: 99;
+        }
+      }
+
+      span {
+        font-weight: 500;
+        margin-left: 5px;
+      }
+
+      .icon_social {
+        width: 40%;
+        text-align: center;
+
+        a {
+          color: $color-1;
+          font-size: $fs-2;
+          padding: 0 3px;
+          transition: all 0.3s;
+
+          &:hover {
+            @include hover-a($color-2);
+          }
+        }
+      }
+    }
+  }
+}
+.sticky {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  background-color: $bg-3;
+  box-shadow: $bs-1;
+}
+
+// ABOUT_US
+.about_us {
+  @include displayContent(center, unset);
+  padding: 0 40px;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 180px;
+    @include background-image(yellow_top_wave_01, 100%);
+    @include positionContent(0, unset, unset, 0);
+  }
+
+  .about_us_title {
+    width: 50%;
+
+    h3 {
+      font: {
+        size: $fs-3;
+        weight: $fw-2;
+      }
+      color: $color-2;
+    }
+
+    h1 {
+      font: {
+        size: $fs-4;
+        weight: $fw-2;
+      }
+      color: $color-1;
+    }
+  }
+
+  .about_us_img {
+    width: 50%;
+    @include displayContent(unset, center);
+
+    img {
+      width: 90%;
+    }
+  }
+}
+
+// TEACHER_LIST
+.teacher_list {
+  width: 100%;
+  height: 800px;
+  background-color: $bg-2;
+  position: relative;
+  margin: 50px 0;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 200px;
+    @include background-image(Violet_top_left_wave, cover);
+    @include positionContent(-195px, unset, unset, unset);
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 320px;
+    @include background-image(Wave_White_bottom_right_shape_01, cover);
+    @include positionContent(unset, unset, -2px, unset);
+  }
+
+  .list_item {
+    padding: 0 20px;
+
+    .row {
+      width: 100%;
+      margin: 0;
+
+      .item {
+        padding: 20px;
+        z-index: 5;
+
+        .card {
+          border-radius: $bd-r-2;
+          background-color: unset;
+          border: unset;
+          transition: all 0.3s;
+
+          .img_item {
+            overflow: hidden;
+            border-top-left-radius: $bd-r-2;
+            border-top-right-radius: $bd-r-2;
+          }
+
+          .card-img-top {
+            border-top-left-radius: $bd-r-2;
+            border-top-right-radius: $bd-r-2;
+            transition: all 0.3s;
+
+            &:hover {
+              transform: scale(1.03);
+            }
+          }
+
+          .card-body {
+            text-align: center;
+            padding: 30px 0;
+            background-color: $color-3;
+            border-bottom-left-radius: $bd-r-2;
+            border-bottom-right-radius: $bd-r-2;
+
+            h5 {
+              font: {
+                size: $fs-5;
+                weight: $fw-2;
+              }
+              color: $color-2;
+            }
+
+            h4 {
+              font: {
+                family: "Montserrat";
+                size: $fs-6;
+                weight: $fw-2;
+              }
+            }
+
+            p {
+              font-size: $fs-2;
+              color: $color-1;
+              padding: 0 25px;
+              line-height: 30px;
+            }
+          }
+
+          &:hover {
+            box-shadow: $bs-1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// FIND_YOUR_COURSE
+.find_your_course {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-top: 100px;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 320px;
+    @include background-image(accent_bottom_wave_01, cover);
+    @include positionContent(unset, unset, 0, unset);
+  }
+
+  .find_your_course_img {
+    width: 50%;
+    z-index: 2;
+    @include displayContent(unset, right);
+
+    img {
+      height: 95%;
+    }
+  }
+
+  .find_your_course_form {
+    width: 50%;
+    height: 500px;
+    z-index: 2;
+    padding: 0 80px;
+
+    .form {
+      width: 400px;
+      height: 500px;
+      background-color: $color-3;
+      border-radius: $bd-r-2;
+      box-shadow: $bs-2;
+      padding: 30px;
+
+      h1 {
+        font: {
+          size: $fs-7;
+          weight: $fw-2;
+        }
+        text-align: center;
+      }
+
+      .form_input {
+        margin: 40px 0;
+
+        .form_input_row1 {
+          @include displayContent(unset, space-between);
+        }
+
+        .form-group {
+          width: 48%;
+          position: relative;
+          @include displayContent(center, unset);
+
+          i {
+            position: absolute;
+            left: 15px;
+            color: $color-2;
+          }
+
+          input {
+            height: 45px;
+            padding-left: 45px;
+            border-radius: $bd-r-1;
+            font-size: $fs-8;
+            border: $bd-1;
+            color: $color-4;
+
+            @include focusSelector();
+          }
+        }
+
+        .form_input_row2 {
+          width: 100%;
+
+          select {
+            width: 100%;
+            height: 45px;
+            border: $bd-1;
+            border-radius: $bd-r-1;
+            cursor: pointer;
+            padding: 0px 35px;
+            font-size: $fs-8;
+            color: $color-4;
+
+            @include focusSelector();
+
+            option {
+              color: $color-4;
+            }
+          }
+        }
+
+        .form_input_row3 {
+          i {
+            top: 10px;
+          }
+
+          textarea {
+            border-radius: 20px;
+            font-size: $fs-1;
+            padding-left: 40px;
+
+            &:focus {
+              border-color: $bd-2 !important;
+            }
+
+            @include focusSelector();
+          }
+        }
+
+        .btnSend {
+          position: relative;
+
+          background-color: $color-2;
+          font-size: $fs-1;
+          color: $color-3;
+          font-weight: $fw-2;
+          letter-spacing: 1px;
+          padding: 12px 50px;
+          border-radius: $bd-r-1;
+          margin-top: 30px;
+
+          @include hoverBtn($bg-1, $color-2);
+        }
+      }
+    }
+  }
+}
+
+// HEADER
+footer {
+  width: 100%;
+  background-color: #aa017e;
+  position: relative;
+
+  &::after {
+    content: "";
+    @include background-image(footer_background, cover);
+    background-position-x: center;
+    @include positionContent(unset, unset, -200px, unset);
+    width: 100%;
+    height: 530px;
+  }
+
+  .mainFooter {
+    padding: 50px;
+    padding-bottom: 0;
+
+    .row {
+      width: 100%;
+      margin: 40px 0;
+
+      .footer_item {
+        z-index: 10;
+
+        .item {
+          padding: 0 15px;
+          z-index: 10;
+
+          h1 {
+            font: {
+              size: $fs-6;
+              weight: $fw-2;
+            }
+            color: $color-3;
+          }
+
+          .contact_list {
+            margin: 25px 0;
+
+            .contact_footer {
+              @include displayContent(center, unset);
+              font-size: $fs-1;
+              color: $color-3;
+              margin-bottom: 10px;
+
+              i {
+                width: 10%;
+              }
+            }
+          }
+
+          .icon_social_footer {
+            width: 40%;
+            @include displayContent(unset, space-between);
+
+            a {
+              @include hover-a($color-3);
+              transition: all 0.5s;
+              font-size: $fs-1;
+
+              &:hover {
+                color: $color-1;
+              }
+            }
+          }
+
+          .quickLinks_list {
+            margin: 23px 0;
+
+            ul {
+              list-style: none;
+
+              li {
+                margin: 10px 0;
+                position: relative;
+                padding-bottom: 6px;
+                border-bottom: $bd-1;
+
+                a {
+                  @include hover-a($color-3);
+                  font-size: $fs-2;
+                  transition: all 0.2s;
+
+                  &:hover {
+                    opacity: 0.8;
+                  }
+                }
+              }
+            }
+          }
+
+          .newsletter {
+            margin: 50px 0;
+
+            .form-group {
+              input {
+                background-color: unset;
+                height: 45px;
+                border-radius: $bd-r-1;
+                text-align: center;
+                border: $bd-3;
+                color: $color-4;
+                font-size: $fs-2;
+
+                &::placeholder {
+                  color: $color-3;
+                }
+
+                &:focus {
+                  border: $bd-4;
+                  box-shadow: none;
+                }
+              }
+            }
+
+            button {
+              width: 100%;
+              height: 45px;
+              background-color: $color-3;
+              border-radius: $bd-r-1;
+              font: {
+                size: $fs-8;
+                weight: $fw-1;
+              }
+              letter-spacing: 1px;
+
+              @include hoverBtn($bg-1, $color-3);
+            }
+          }
+        }
+      }
+    }
+  }
+}

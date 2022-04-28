@@ -1,0 +1,41 @@
+@mixin displayContent($align, $jutify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $jutify;
+}
+
+@mixin hover-a($color) {
+  text-decoration: none;
+  color: $color;
+}
+
+@mixin positionContent($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin background-image($name_img, $size) {
+  background-image: url(../../img/#{$name_img}.png);
+  background-repeat: no-repeat;
+  background-size: $size;
+}
+
+@mixin focusSelector() {
+  &:focus {
+    background-color: unset;
+    border-color: $bd-2 !important;
+    box-shadow: $bs-3;
+  }
+}
+
+@mixin hoverBtn($bg, $color) {
+  &:hover {
+    background-color: $bg;
+    color: $color;
+    border-radius: $bd-r-1;
+    border: 1px solid $color;
+  }
+}
