@@ -35,7 +35,8 @@ function renderHTML(arr) {
   let content = "";
   for (let i = 0; i < arr.length; i++) {
     var teacher = arr[i];
-    content += `
+    if (teacher.loaiND === "GV") {
+      content += `
             <div class="col-12 col-md-6 col-lg-3 item wow animate__animated animate__fadeInLeft">
                 <div class="card">
                 <div class="img_item">
@@ -55,6 +56,7 @@ function renderHTML(arr) {
                 </div>
             </div>
         `;
+    }
   }
   document.getElementById("teacherList").innerHTML = content;
 }
